@@ -4,9 +4,9 @@ import java.security.SecureRandom;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MyRequestClientProperties {
+public class MyRestClientProperties {
 
-	public MyRequestClientProperties() {
+	public MyRestClientProperties() {
 	    
 		headers.put("accept", "application/json");
 		fields.put("oauth_consumer_key", "OauthKey");

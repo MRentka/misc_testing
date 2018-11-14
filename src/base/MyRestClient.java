@@ -9,10 +9,10 @@ public class MyRestClient {
 	
 	public MyRestClient() {
 	    
-		properties = new MyRequestClientProperties();
+		properties = new MyRestClientProperties();
 	}
 	
-	private MyRequestClientProperties properties;
+	private MyRestClientProperties properties;
 
 	public HttpResponse<JsonNode> customResponseAsJSON() {
 		try {
@@ -41,13 +41,13 @@ public class MyRestClient {
 	}
 
 	
-	public MyRequestClientProperties getProperties() {
+	public MyRestClientProperties getProperties() {
 	
 	    return properties;
 	}
 
 	
-	public void setProperties(MyRequestClientProperties properties) {
+	public void setProperties(MyRestClientProperties properties) {
 	
 	    this.properties = properties;
 	}
