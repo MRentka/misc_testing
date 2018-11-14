@@ -34,6 +34,8 @@ public class MyRestClientProperties {
 	private String generateSignature() {
 		
 	    String baseString = generateBaseString();
+//	    String privateKey = PrivateKey
+	    // https://techxperiment.blogspot.com/2016/10/create-and-read-pkcs-8-format-private.html
 	    System.out.println(baseString); //for debugging
 	    
             return "";

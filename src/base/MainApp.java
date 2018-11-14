@@ -25,6 +25,7 @@ public class MainApp {
     /*
      * Zum testen der Unirest Lib
      */
+    @SuppressWarnings("unused")
     private static HttpResponse<String> fetchResponse(String endpoint) {
 	
 	try {
