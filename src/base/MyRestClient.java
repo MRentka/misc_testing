@@ -8,6 +8,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 public class MyRestClient {
 	
 	public MyRestClient() {
+	    
 		properties = new MyRequestClientProperties();
 	}
 	

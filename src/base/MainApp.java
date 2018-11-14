@@ -1,32 +1,43 @@
 package base;
 
 import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
 public class MainApp {
 
-	public static void main(String[] args) {
-		System.out.println(fetchResponse("http://httpbin.org/post").getBody().toString());
-		System.out.println(fetchResponse("http://httpbin.org/post").getStatusText());
-		System.out.println(fetchResponse("http://httpbin.org/post").getStatus());
-		
-		MyRestClient myRestClient = new MyRestClient();
-	}
+    /*
+     * Endpoints:
+     * http://httpbin.org/post
+     * https://jira-test.begasoft.ch/plugins/servlet/oauth/
+     */
+    public static void main(String[] args) {
+
+//	System.out.println(fetchResponse("https://jira-test.begasoft.ch/plugins/servlet/oauth/").getBody().toString());
+//	System.out.println(fetchResponse("https://jira-test.begasoft.ch/plugins/servlet/oauth/").getStatusText());
+//	System.out.println(fetchResponse("https://jira-test.begasoft.ch/plugins/servlet/oauth/").getStatus() + "\n");
+	MyRestClient myRestClient = new MyRestClient();
+//	HttpResponse<String> response = myRestClient.customResponseAsString();
+//	System.out.println(response.getHeaders().toString());
+	System.out.println(myRestClient.customResponseAsString().getBody().toString());
+    }
 	
-	private static HttpResponse<JsonNode> fetchResponse(String endpoint) {
-		try {
-			HttpResponse<JsonNode> jsonResponse = Unirest.post(endpoint)
-					  .header("accept", "application/json")
-					  .queryString("apiKey", "123")
-					  .field("parameter", "value")
-					  .field("foo", "bar")
-					  .asJson();
-			return jsonResponse;
-		} catch (UnirestException e) {
-			e.printStackTrace();
-		}	
-		return null;
-	}
+    /*
+     * Zum testen der Unirest Lib
+     */
+    private static HttpResponse<String> fetchResponse(String endpoint) {
+	
+	try {
+	    HttpResponse<String> response = Unirest.post(endpoint)
+		    .header("accept", "application/json")
+		    .queryString("apiKey", "123")
+		    .field("parameter", "value")
+		    .field("foo", "bar")
+		    .asString();
+	    return response;
+	} catch (UnirestException e) {
+	    e.printStackTrace();
+	}	
+	return null;
+    }
 }
