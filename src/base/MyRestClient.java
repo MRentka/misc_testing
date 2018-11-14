@@ -39,4 +39,16 @@ public class MyRestClient {
 		}	
 		return null;
 	}
+
+	
+	public MyRequestClientProperties getProperties() {
+	
+	    return properties;
+	}
+
+	
+	public void setProperties(MyRequestClientProperties properties) {
+	
+	    this.properties = properties;
+	}
 }

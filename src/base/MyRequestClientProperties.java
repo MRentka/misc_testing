@@ -61,26 +61,44 @@ public class MyRequestClientProperties {
 	}
 
 	public String getEndpoint() {
+	    
 		return endpoint;
 	}
 	
 	public void setEndpoint(String endpoint) {
+	    
 		this.endpoint = endpoint;
 	}
 	
 	public Map<String, String> getHeaders() {
+	    
 		return headers;
 	}
 	
 	public void setHeaders(Map<String, String> headers) {
+	    
 		this.headers = headers;
 	}
 	
 	public Map<String, Object> getFields() {
+	    
 		return fields;
 	}
 	
 	public void setFields(Map<String, Object> fields) {
+	    
 		this.fields = fields;
+	}
+
+	
+	public String getSignature() {
+	
+	    return signature;
+	}
+
+	
+	public void setSignature(String signature) {
+	
+	    this.signature = signature;
 	}
 }
