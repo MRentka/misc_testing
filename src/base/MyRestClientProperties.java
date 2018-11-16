@@ -1,22 +1,28 @@
 package base;
 
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.security.Signature;
+import java.security.SignatureException;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.web.util.UriUtils;
 public class MyRestClientProperties {
 
 	public MyRestClientProperties() {
 	    
-		headers.put("accept", "application/json");
-		fields.put("oauth_consumer_key", "OauthKey");
-		fields.put("oauth_version", "1.0");
-		fields.put("oauth_nonce", generateNonce());
-		fields.put("oauth_timestamp", generateTimeStamp());
-		fields.put("oauth_signature_method", "RSA-SHA1");
-		generateSignature();
-		fields.put("oauth_signature", "this_is_the_signature");
-		endpoint = "https://jira-test.begasoft.ch/plugins/servlet/oauth/request-token?";
+	    headers.put("accept", "application/json");
+	    fields.put("oauth_consumer_key", "OauthKey");
+	    fields.put("oauth_version", "1.0");
+	    fields.put("oauth_nonce", generateNonce());
+	    fields.put("oauth_timestamp", generateTimeStamp());
+	    fields.put("oauth_signature_method", "RSA-SHA1");
+	    fields.put("oauth_signature", generateSignature());
+	    endpoint = "https://jira-test.begasoft.ch/plugins/servlet/oauth/request-token?";
 	}
 	
 	private String endpoint;
@@ -27,18 +33,29 @@ public class MyRestClientProperties {
 	private String generateBaseString() {
 	    
 	    StringBuilder baseString = new StringBuilder();
-	    fields.forEach((key, value) -> baseString.append(key).append("=").append(value).append("&"));
+	    fields.forEach((key, value) -> {
+		try {
+		    baseString.append(UriUtils.encode(key, "UTF8")).append("=") //brauchts wahrsch. nicht
+		    .append(UriUtils.encode((String) value, "UTF8")).append("&");
+		} catch (UnsupportedEncodingException e) {
+		    e.printStackTrace();
+		}
+	    });
 	    return baseString.toString();
 	}
 	
 	private String generateSignature() {
-		
-	    String baseString = generateBaseString();
-//	    String privateKey = PrivateKey
-	    // https://techxperiment.blogspot.com/2016/10/create-and-read-pkcs-8-format-private.html
-	    System.out.println(baseString); //for debugging
 	    
-            return "";
+	    try {
+		Signature signature = Signature.getInstance("SHA256withRSA");
+		signature.initSign(KeyReader.getPrivateKey());
+		signature.update(generateBaseString().getBytes());
+		return Base64.getUrlEncoder().encodeToString(signature.sign());
+		
+	    } catch (NoSuchAlgorithmException | InvalidKeyException | SignatureException e) {
+		e.printStackTrace();
+	    }
+	    return null;
 	}
 	
 	/*
@@ -58,7 +75,6 @@ public class MyRestClientProperties {
 	        stringBuilder.append(secureRandom.nextInt(10));
 	    }
 	    String randomNumber = stringBuilder.toString();
-	    System.out.println(randomNumber);
 	    return randomNumber;
 	}
 

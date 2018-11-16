@@ -17,9 +17,10 @@ public class MainApp {
 //	System.out.println(fetchResponse("https://jira-test.begasoft.ch/plugins/servlet/oauth/").getStatusText());
 //	System.out.println(fetchResponse("https://jira-test.begasoft.ch/plugins/servlet/oauth/").getStatus() + "\n");
 	MyRestClient myRestClient = new MyRestClient();
-//	HttpResponse<String> response = myRestClient.customResponseAsString();
+	HttpResponse<String> response = myRestClient.customResponseAsString();
 //	System.out.println(response.getHeaders().toString());
-	System.out.println(myRestClient.customResponseAsString().getBody().toString());
+	System.out.println(response.getBody().toString());
+	
     }
 	
     /*

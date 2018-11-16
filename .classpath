@@ -16,5 +16,33 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="lib/spring-aop-4.3.20.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-aspects-4.3.20.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-beans-4.3.20.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-context-4.3.20.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-context-support-4.3.20.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-core-4.3.20.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-data-commons-1.13.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-data-commons-core-1.4.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-data-mongodb-2.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-expression-4.3.20.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-instrument-4.3.20.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-instrument-tomcat-4.3.20.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-jdbc-4.3.20.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-jms-4.3.20.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-messaging-4.3.20.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-orm-4.3.20.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-oxm-4.3.20.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-security-config-3.2.10.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-security-core-3.2.10.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-security-crypto-3.2.10.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-security-taglibs-3.2.10.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-security-web-3.2.10.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-test-4.3.20.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-tx-4.3.20.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-web-4.3.20.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-webmvc-4.3.20.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-webmvc-portlet-4.3.20.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-websocket-4.3.20.RELEASE.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
